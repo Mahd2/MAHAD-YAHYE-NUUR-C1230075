@@ -1,0 +1,104 @@
+import java.util.Scanner;
+
+public class Student_GradeSystem {
+
+      static  String student_name1="";
+      static  String student_name2="";
+      static  String student_name3="";
+
+      static  double student_grade1=0;
+      static  double student_grade2=0;
+      static  double student_grade3=0;
+
+
+
+    // Main method
+    public static void main(String[] args) {
+        System.out.println("--Student Grade System---");
+        Scanner scanner = new Scanner(System.in);
+
+        int choice;
+        do {
+            System.out.println("--Menu---");
+            System.out.println("-Option 1 Add Student---");
+            System.out.println("-Option 2 Show Report---");
+            System.out.println("-Option 3 Search Student by Name---");
+            System.out.println("-Option 4 Excit---");
+            choice=scanner.nextInt();
+            scanner.nextLine();
+
+            if(choice==1){
+                AddStudent(scanner);
+            }else  if(choice==2){
+             CalculateStuentGrade();
+
+            }else  if(choice==3){
+                System.out.println("--Enter Student Name You Want To Search--");
+                String student_name=scanner.nextLine();
+              SearchStudent(student_name);
+            }else if(choice==4){
+                System.out.println("Thank You Exited the Program");
+                break;
+            }
+        }while (choice!=3);
+        scanner.close();
+
+
+    }
+     static void AddStudent(Scanner scanner){
+        System.out.println("--Enter 3 Students Information--");
+
+        System.out.println("Enter Student 1 Name");
+        student_name1 = scanner.nextLine();
+        System.out.println("Enter Student 1 Grade");
+        student_grade1 = scanner.nextDouble();
+        scanner.nextLine();
+
+        System.out.println("Enter Student 2 Name");
+        student_name2 = scanner.nextLine();
+        System.out.println("Enter Student 2 Grade");
+        student_grade2 = scanner.nextDouble();
+        scanner.nextLine();
+
+        System.out.println("Enter Student 3 Name");
+        student_name3 = scanner.nextLine();
+        System.out.println("Enter Student 3 Grade");
+        student_grade3 = scanner.nextDouble();
+        scanner.nextLine();
+
+        System.out.println("Student Information Saved Successfully");
+    }
+     static void CalculateStuentGrade(){
+        double total = student_grade1 + student_grade2 + student_grade3;
+        double avg = total / 3;
+
+        double min = Math.min(student_grade1, Math.min(student_grade2, student_grade3));
+        double max = Math.max(student_grade1, Math.max(student_grade2, student_grade3));
+
+        System.out.println("Students Average Grade: " + avg);
+        System.out.println("Student Minimum Grade: " + min);
+        System.out.println("Student Maximum Grade: " + max);
+    }
+     static void SearchStudent(String student_name){
+
+        boolean found=false;
+        if (student_name.equalsIgnoreCase(student_name1)) {
+            System.out.println("Found Student is : " + student_name1 + " with grade " + student_grade1);
+            found = true;
+        } else if (student_name.equalsIgnoreCase(student_name2)) {
+            System.out.println("Found Student is : " + student_name2 + " with grade " + student_grade2);
+            found = true;
+        } else if (student_name.equalsIgnoreCase(student_name3)) {
+            System.out.println("Found Student is : " + student_name3 + " with grade " + student_grade3);
+            found = true;
+        }
+     if (!found){
+         System.out.println("--No Student Found---");
+     }
+
+    }
+
+
+
+
+}
