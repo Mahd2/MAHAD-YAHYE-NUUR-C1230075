@@ -1,0 +1,28 @@
+import java.util.Scanner;
+public class sentenaal_value {
+    public static void main(String[] args) {
+        int sum = 0;
+        Scanner input = new Scanner(System.in);
+        System.out.println("enter the numbers to ad \n press n to exit: ");
+        String Value;
+
+        while (true) {
+            System.out.println("enter a type 'n' to exist :");
+            String value = input.next();
+            if (value.equalsIgnoreCase("n")) {
+                break;
+            }
+            try {
+                int number = Integer.parseInt(value);
+                sum += number;
+            } catch (Exception e){
+                System.out.print("Invalid input");
+        }
+
+        }
+        System.out.println("the sum amount is: "+sum);
+    }
+}
+
+
+
